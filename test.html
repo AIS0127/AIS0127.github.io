@@ -6,6 +6,7 @@
 var aIframe = document.createElement("iframe");
 aIframe.src = "https://notion.so@ais0127.github.io/test.html";
 document.getElementsByTagName('body')[0].appendChild(aIframe);
+document.getElementsByTagName('iframe')[0].contentWindow.document.location.href='javascript:alert(1);';
         }
     </script>
 </head>
