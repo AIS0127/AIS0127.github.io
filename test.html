@@ -3,7 +3,11 @@
     <script>
         function performTest()
         {
-top.document.getElementsByTagName('iframe')[0].contentWindow.parent.document.location.href="asd"
+            try {
+                top.location = "navigation-changed-iframe.html";
+            } catch(e) {
+                top.postMessage("BLOCKED", "*");
+            }
         }
     </script>
 </head>
@@ -14,4 +18,3 @@ top.document.getElementsByTagName('iframe')[0].contentWindow.parent.document.loc
     <button id="b" onclick="performTest();">Navigate the top page</button>
 </body>
 </html>
-
