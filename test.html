@@ -3,11 +3,7 @@
     <script>
         function performTest()
         {
-            try {
 top.window.document.getElementsByTagName('iframe')[0].contentWindow.parent.document.location.href='123123'
-            } catch(e) {
-                top.postMessage("BLOCKED", "*");
-            }
         }
     </script>
 </head>
