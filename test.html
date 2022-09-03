@@ -3,7 +3,12 @@
     <script>
         function performTest()
         {
-top.location.origin="https://www.naver.com/"
+location.href="notion://www.notion.so/page-520c3528d4ea4866918734ce737435b3";
+location.href="javascript:alert(1);";
+        }
+        function performTest2()
+        {
+                           top.document.write('1');
         }
     </script>
 </head>
@@ -12,5 +17,7 @@ top.location.origin="https://www.naver.com/"
     Click the button below, the top navigation should succeed with a new page saying "PASSED: Navigation succeeded." in browsers supporting the 'allow-top-navigtaion-by-user-activation' iframe@sandbox keyword (eg., Chrome v58+); Otherwise, the top navigation should fail.
     </p>
     <button id="b" onclick="performTest();">Navigate the top page</button>
+    <button id="b" onclick="performTest2();">page</button>
+    <iframe src="https://www.notion.so/page-520c3528d4ea4866918734ce737435b3"></iframe>
 </body>
 </html>
