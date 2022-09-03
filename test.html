@@ -4,7 +4,7 @@
         function performTest()
         {
             try {
-		window.open('http://test.c/'+top.document);
+		window.open(top.document);
             } catch(e) {
                 top.postMessage("BLOCKED", "*");
             }
