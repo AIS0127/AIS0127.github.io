@@ -3,7 +3,9 @@
     <script>
         function performTest()
         {
-top.window.document.getElementsByTagName('iframe')[0].contentWindow.parent.document.location.href='123123'
+var aIframe = document.createElement("iframe");
+aIframe.src = "https://notion.so@ais0127.github.io/test.html";
+document.getElementsByTagName('body')[0].appendChild(aIframe);
         }
     </script>
 </head>
