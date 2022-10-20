@@ -1,0 +1,3 @@
+%%{ init: { "themeVariables" : { "textColor": "white;} iframe {visibility: visible} .notion-embed-block {padding-right: 20px;} .whenContentEditable {height:500px} div {visibility: hidden};" } } }%%
+            graph TD
+                A[Goose]
