@@ -52,7 +52,9 @@ The Vulnerability is in Ping function.
         ```
 
 If client runs 'Ping', client receives 'Pong'
+
 ![1](https://i.imgur.com/sAOHhQc.png)
+
 The detail process step is as follows:
 1. Client send data below
 
