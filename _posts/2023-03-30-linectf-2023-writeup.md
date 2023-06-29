@@ -3,7 +3,6 @@ title: (CTF) LINE CTF 2023 writeup
 categories: [Writeup]
 tags : [writeup, CTF, LINECTF]
 date : 2023-03-30 22:22:00 +0900
-author: AIS
 toc: true
 comments: false
 mermaid: false
