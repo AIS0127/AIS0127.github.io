@@ -3,9 +3,9 @@ title: (CTF) LINE CTF 2023 writeup
 categories: [CTF]
 tags : []
 date : 2023-03-30 22:22:00 +0900
-author:
-    name: 
-    link: 
+author: 
+    name: AIS
+    link: https://poc.kr
 toc: true
 comments: false
 mermaid: false
