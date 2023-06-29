@@ -1,6 +1,6 @@
 ---
 title: (CTF) LINE CTF 2023 writeup
-categories: []
+categories: [CTF]
 tags : []
 date : 2023-03-30 22:22:00 +0900
 author:
@@ -10,8 +10,8 @@ toc: true
 comments: false
 mermaid: false
 math: false
-
 ---
+
 # LINECTF 2023
 ## Simple Blogger
 - This Challenge has two binary client_nix, server_nix 
