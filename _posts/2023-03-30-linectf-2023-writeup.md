@@ -63,7 +63,7 @@ The detail process step is as follows:
     ```
 
 2. Server receives data, processes with them
-    2-1. Generally follow below logic save data to temp buffer
+2-1. Generally follow below logic save data to temp buffer
     ![2](https://i.imgur.com/97Vcc4l.png)
     The important element is
     
@@ -73,6 +73,7 @@ The detail process step is as follows:
 
     2-2. And Call Ping Function
     ![3](https://i.imgur.com/MqfeG4e.png)
+    
     (v9 == a2)
     sub_4025DC is Ping function, the 7th argument is size saved at the above logic
     2-3. Memcpy and return
