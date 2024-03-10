@@ -208,6 +208,6 @@ Vulnerability occurs in realloc process. The size used in realloc is destlen*2 +
 
 ---
 
-But i can't find way to use this vulnerability ㅠ.ㅠ
+
 
 ---

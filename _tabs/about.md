@@ -7,13 +7,11 @@ order: 4
 - Inseo An
 
 # Education
-- Korea Digital Media High School       
+- [Korea Digital Media High School](https://www.dimigo.hs.kr/)
+- [Korea Univ](https://www.korea.ac.kr/mbshome/mbs/en/index.do)
 
 # Teams
-- ST4RT
-    - Korea local team.
-- SATURNX
-    - Korea local team.
+- Super Guesser
 
 # Project
 - Application Vulnerability Analysis for
