@@ -3,14 +3,19 @@
 icon: fas fa-info-circle
 order: 4
 ---
-# Name
-- Inseo An
+# Profile
+- Inseo An (AIS)
+- Nationality : South Korea
+- Birth : 2005
+
+# Work
+- Enki (2023.09.18 ~ 2023.12.19)
 
 # Education
 - [Korea Digital Media High School](https://www.dimigo.hs.kr/)
 - [Korea Univ](https://www.korea.ac.kr/mbshome/mbs/en/index.do)
 
-# Teams
+# Team
 - Super Guesser
 
 # Project
@@ -18,7 +23,7 @@ order: 4
 Enhancing Developer Ecosystem Security
     - Best Of The Best 11th
 
-# Domestic Award
+# Award
 - 1st. Cyber Conflict Exercise ($5000)
 - 2nd. Hacking Championship Junior ($500)
 - 3rd. Whitehat Contest ($2000)
