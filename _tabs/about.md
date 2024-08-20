@@ -15,6 +15,9 @@ order: 4
 - [Korea Digital Media High School](https://www.dimigo.hs.kr/)
 - [Korea Univ](https://www.korea.ac.kr/mbshome/mbs/en/index.do)
 
+# Teaching Experience
+- May-Aug 2024, System Hacking Basic(Pwnable), Korea Digital Medai High School  
+
 # Team
 - Super Guesser
 
