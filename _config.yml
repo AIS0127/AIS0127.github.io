@@ -26,7 +26,7 @@ description: >- # used by seo meta and the atom feed
   CTF,PWN
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: "https://poc.kr"
+url: "https://blog.mandarin.jeju.kr"
 
 github:
   username: AIS0127 # change to your github username
@@ -79,7 +79,7 @@ theme_mode: dark # [light|dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://blog.poc.kr/assets/img/avatar/avatar_cat.png
+avatar: /assets/img/avatar/avatar_cat.png
 
 # boolean type, the global switch for TOC in posts.
 toc: true
